@@ -3,9 +3,19 @@ import { Navigate, Outlet } from "react-router-dom";
 
 const ProtectedRoute = () => {
 
-  const {isAuthenticated} = useAuth0();
+  const {isAuthenticated , isLoading} = useAuth0();
 
-  return  isAuthenticated?(<Outlet/>):(<Navigate to="/" replace/>);
+  if(isLoading)
+  {
+    return null; //loading spinner todo
+  }
+  if(isAuthenticated){
+      return  <Outlet/>
+  }
+
+  return <Navigate to="/" replace/>;
+
+  // return  isAuthenticated?(<Outlet/>):(<Navigate to="/" replace/>);
 
 };
 
