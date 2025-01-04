@@ -41,7 +41,7 @@ const PaginationSelector = ({ page, pages, onPageChange }: Props) => {
             </PaginationLink>
           </PaginationItem>
         ))}
-        {page !== pageNumbers.length && (
+        {page !== pageNumbers.length && pageNumbers.length !==0 && (
           <PaginationItem>
             <PaginationNext href="#" onClick={() => onPageChange(page + 1)} />
           </PaginationItem>
